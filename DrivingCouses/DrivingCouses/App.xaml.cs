@@ -5,21 +5,13 @@ using Xamarin.Forms.Xaml;
 using DrivingCouses.Views;
 using MvvmCross.IoC;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DrivingCouses
 {
-    public partial class App : MvvmCross.Core.ViewModels.MvxApplication
+    public partial class App : Application
     {
-        public override void Initialize()
+        public App()
         {
-            CreatableTypes()
-                .EndingWith("Service")
-                .AsInterfaces()
-                .RegisterAsLazySingleton();
-
-            RegisterAppStart<MainViewModel>();
-            // if you want to use a custom AppStart, you should replace the previous line with this one:
-            // RegisterCustomAppStart<MyCustomAppStart>();
+            InitializeComponent();
         }
 
         protected override void OnStart()
